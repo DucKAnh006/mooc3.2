@@ -1,0 +1,100 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+}
+
+.container {
+    width: 90%; /* Tăng chiều rộng để chứa 6 ảnh */
+    max-width: 1200px;
+    display: block; /* Đổi thành block để dễ quản lý nội dung bên trong */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Kiểu cho Div Lớn */
+.main-display {
+    background-color: #000000;
+    border: 2px solid #333;
+    width: 400px; /* Đặt 100% để thích ứng với container */
+    height: 400px; /* Đặt chiều cao cố định */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-image 0.5s ease;
+}
+
+/* Kiểu cho Khung chứa các div nhỏ (6 ảnh + 1 trống) */
+.thumbnail-container {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các phần tử xuống dòng */
+    justify-content: flex-start; /* Sắp xếp từ trái sang */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Khung mỗi hình */
+.thumbnail {
+    width: calc((100% / 7) - 15px); /* Tính toán chiều rộng cho 7 phần tử (6 ảnh + 1 trống) */
+    min-width: 120px; /* Chiều rộng tối thiểu để đảm bảo không quá nhỏ */
+    background-color: #e0e0e0;
+    border: 4px solid #aaa;
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.25s ease;
+    /* Thiết lập cho việc sử dụng phím Tab */
+    outline: none; /* Ẩn outline mặc định */
+}
+
+/* Kích hoạt focus (dùng cho phím Tab) */
+.thumbnail:focus {
+    border-color: #007bff; /* Màu viền khi được focus */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+
+/* Hình bên trong */
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Hiệu ứng hover (và focus cho người dùng không dùng chuột) */
+.thumbnail:hover, .thumbnail:focus {
+    background-color: #ccc;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Thiết lập riêng cho div trống */
+.empty-focus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #555;
+    background-color: #f0f0f0;
+    width: calc((100% / 7) - 15px); /* Đảm bảo kích thước khớp với ảnh */
+}
+
+.empty-focus p {
+    margin: 0;
+    padding: 5px;
+}
